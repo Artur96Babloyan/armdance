@@ -4,7 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { SITE_LOGO_PATH } from "@/lib/media";
+import { getMediaUrl, SITE_LOGO_PATH } from "@/lib/media";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: "Arm Dance Show Ballet - Armenian Dance School",
   description: "Experience the beauty and grace of Armenian traditional dance. Join our professional dance school and learn the rich cultural heritage of Armenia.",
   icons: {
-    icon: SITE_LOGO_PATH,
+    icon: getMediaUrl(SITE_LOGO_PATH),
   },
 };
 

@@ -28,7 +28,7 @@ export default function Home() {
       <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-white via-blue-50/30 to-orange-50/20">
         <div className="absolute inset-0 z-0 opacity-30">
           <Image
-            src={SITE_LOGO_PATH}
+            src={getMediaUrl(SITE_LOGO_PATH)}
             alt="Armenian Dance Background"
             fill
             sizes="100vw"

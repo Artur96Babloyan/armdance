@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
-import { SITE_LOGO_PATH } from '@/lib/media';
+import { getMediaUrl, SITE_LOGO_PATH } from '@/lib/media';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -28,7 +28,7 @@ export default function Navigation() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative w-12 h-12 rounded-xl overflow-hidden border-2 shadow-sm group-hover:shadow-md transition-all duration-300" style={{ borderColor: 'var(--primary-light)' }}>
               <Image
-                src={SITE_LOGO_PATH}
+                src={getMediaUrl(SITE_LOGO_PATH)}
                 alt="Arm Dance Show Ballet Logo"
                 fill
                 sizes="48px"

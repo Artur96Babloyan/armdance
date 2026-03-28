@@ -8,8 +8,8 @@ import { getMediaUrl, SITE_VIDEO_PATHS } from '@/lib/media';
 
 const videoMeta = [
   {
-    title: 'Armenian Dance Show Performance',
-    description: 'Watch our talented dancers perform traditional Armenian dances with passion and grace.',
+    title: 'Our Last Concert',
+    description: 'Highlights from our recent Armenian dance concert.',
   },
   {
     title: 'Traditional Dance Performance',
@@ -26,10 +26,6 @@ const videoMeta = [
   {
     title: 'Student Performance',
     description: 'Our students demonstrating their progress and talent.',
-  },
-  {
-    title: 'Dance Recital',
-    description: 'Annual recital showcasing our dancers\' achievements.',
   },
 ] as const;
 
