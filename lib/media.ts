@@ -11,12 +11,12 @@ export function getMediaUrl(path: string): string {
   return `${base}${p}`;
 }
 
-/** Video filenames that exist locally under /public; used for blog + videos pages. */
+/** Always loaded from /public (same-origin), not NEXT_PUBLIC_MEDIA_BASE_URL. */
+export const SITE_LOGO_PATH = '/logo.jpg' as const;
+
+/** Videos under /public or R2; keep in sync with what you actually upload to the bucket. */
 export const SITE_VIDEO_PATHS = [
-  '/copy_23123E67-CF85-4A95-8FA6-B666B7A947FF (3).mov',
   '/1662380387137459.mov',
   '/berd.MP4',
-  '/arcax.MP4.MP4',
   '/harsiPars.MP4',
-  '/IMG_2686.MOV',
 ] as const;

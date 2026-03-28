@@ -1,7 +1,8 @@
 /**
- * Use the default `/_next/image` optimizer for local paths only.
- * For absolute URLs (R2, Supabase, CloudFront, etc.), return the URL as-is so the
- * browser loads the file directly — avoids 500/504 from the optimizer fetching remote media.
+ * - Remote (http/https): return as-is (R2, etc.).
+ * - Local (/public paths): return as-is so the browser loads static files directly —
+ *   avoids `/_next/image` 404s and custom-loader + `fill` width quirks in dev.
+ * - Anything else: fall back to the built-in optimizer query.
  */
 export default function imageLoader({
   src,
@@ -13,6 +14,9 @@ export default function imageLoader({
   quality?: number;
 }) {
   if (src.startsWith('http://') || src.startsWith('https://')) {
+    return src;
+  }
+  if (src.startsWith('/')) {
     return src;
   }
   const q = quality ?? 75;

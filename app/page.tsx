@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { getMediaUrl } from '@/lib/media';
+import { getMediaUrl, SITE_LOGO_PATH } from '@/lib/media';
 
 const galleryImagePaths = [
   '/IMG_6579.jpeg',
@@ -28,9 +28,10 @@ export default function Home() {
       <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-white via-blue-50/30 to-orange-50/20">
         <div className="absolute inset-0 z-0 opacity-30">
           <Image
-            src={getMediaUrl('/logo.jpg')}
+            src={SITE_LOGO_PATH}
             alt="Armenian Dance Background"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
