@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Too large for GitHub (>100MB); host on Drive/YouTube/Vimeo and link instead
+public/IMG_2686.MOV
