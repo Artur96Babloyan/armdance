@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useParams } from 'next/navigation';
+import { getMediaUrl, SITE_VIDEO_PATHS } from '@/lib/media';
 
 export default function BlogPostPage() {
   const { t } = useLanguage();
@@ -14,22 +15,13 @@ export default function BlogPostPage() {
 
   const post = t.blog.posts.find((p) => p.id === postId);
 
-  // Map videos to blog posts - Last concert video is first
-  const videos = [
-    '/copy_23123E67-CF85-4A95-8FA6-B666B7A947FF (3).mov', // Last Concert
-    '/1662380387137459.mov',
-    '/166238040757721.MP4',
-    '/1662380430938323.MP4',
-    '/1662380450835598.MP4',
-    '/86222d53-eff3-47dd-abc2-b60a6927237d.MP4',
-    '/1662380387137459.mov',
-    '/berd.MP4',
-    '/arcax.MP4.MP4',
-    '/harsiPars.MP4',
-  ];
-
-  const videoSrc = post ? videos[(post.id - 1) % videos.length] : null;
-  const thumbnailImage = post && post.id === 1 ? '/IMG_0996.JPG' : '/dance-bg.jpg';
+  const videoPath = post
+    ? SITE_VIDEO_PATHS[(post.id - 1) % SITE_VIDEO_PATHS.length]
+    : null;
+  const videoSrc = videoPath ? getMediaUrl(videoPath) : null;
+  const thumbnailImage = post
+    ? getMediaUrl(post.id === 1 ? '/IMG_0996.JPG' : '/dance-bg.jpg')
+    : '';
 
   if (!post) {
     return (

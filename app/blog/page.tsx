@@ -4,24 +4,11 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getMediaUrl, SITE_VIDEO_PATHS } from '@/lib/media';
 
 export default function BlogPage() {
   const { t } = useLanguage();
   const [playingVideo, setPlayingVideo] = useState<{ postId: number; videoId: string } | null>(null);
-
-  // Map videos to blog posts - Last concert video is first
-  const videos = [
-    '/copy_23123E67-CF85-4A95-8FA6-B666B7A947FF (3).mov', // Last Concert
-    '/1662380387137459.mov',
-    '/166238040757721.MP4',
-    '/1662380430938323.MP4',
-    '/1662380450835598.MP4',
-    '/86222d53-eff3-47dd-abc2-b60a6927237d.MP4',
-    '/1662380387137459.mov',
-    '/berd.MP4',
-    '/arcax.MP4.MP4',
-    '/harsiPars.MP4',
-  ];
 
   return (
     <div className="min-h-screen pt-20 bg-gradient-to-b from-white via-gray-50 to-white">
@@ -42,9 +29,10 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {t.blog.posts.map((post, index) => {
-              const videoSrc = videos[index % videos.length];
+              const path = SITE_VIDEO_PATHS[index % SITE_VIDEO_PATHS.length];
+              const videoSrc = getMediaUrl(path);
               const isPlaying = playingVideo?.postId === post.id;
-              const thumbnailImage = post.id === 1 ? '/IMG_0996.JPG' : '/dance-bg.jpg';
+              const thumbnailImage = getMediaUrl(post.id === 1 ? '/IMG_0996.JPG' : '/dance-bg.jpg');
 
               return (
                 <article

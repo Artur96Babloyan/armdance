@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getMediaUrl } from '@/lib/media';
 
 export default function FoundersPage() {
   const { t } = useLanguage();
@@ -28,7 +29,7 @@ export default function FoundersPage() {
             <div className="card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="relative w-full aspect-[3/4] mb-6 rounded-t-xl overflow-hidden">
                 <Image
-                  src="/faunders.jpeg"
+                  src={getMediaUrl('/faunders.jpeg')}
                   alt="Gevorg Xachatryan - Founder of Arm Dance Show Ballet"
                   fill
                   className="object-contain"
@@ -52,7 +53,7 @@ export default function FoundersPage() {
             <div className="card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="relative w-full aspect-[3/4] mb-6 rounded-t-xl overflow-hidden">
                 <Image
-                  src="/faunders.jpeg"
+                  src={getMediaUrl('/faunders.jpeg')}
                   alt="Lilit Xachatryan - Founder of Arm Dance Show Ballet"
                   fill
                   className="object-contain"

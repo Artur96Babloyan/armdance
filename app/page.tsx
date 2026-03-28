@@ -3,6 +3,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getMediaUrl } from '@/lib/media';
+
+const galleryImagePaths = [
+  '/IMG_6579.jpeg',
+  '/IMG_6725.jpeg',
+  '/IMG_6731.jpeg',
+  '/IMG_6737.jpeg',
+  '/5S5A4242.jpg',
+  '/5S5A4298.jpg',
+  '/5S5A4388.jpg',
+  '/5S5A4396.jpg',
+  '/5S5A4406.jpg',
+  '/IMG_0996.JPG',
+  '/IMG_6512.jpeg',
+] as const;
 
 export default function Home() {
   const { t } = useLanguage();
@@ -13,7 +28,7 @@ export default function Home() {
       <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-white via-blue-50/30 to-orange-50/20">
         <div className="absolute inset-0 z-0 opacity-30">
           <Image
-            src="/logo.jpg"
+            src={getMediaUrl('/logo.jpg')}
             alt="Armenian Dance Background"
             fill
             className="object-cover"
@@ -64,105 +79,20 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/IMG_6579.jpeg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/IMG_6725.jpeg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/IMG_6731.jpeg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/IMG_6737.jpeg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/5S5A4242.jpg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/5S5A4298.jpg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/5S5A4388.jpg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/5S5A4396.jpg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/5S5A4406.jpg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/IMG_0996.JPG"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500">
-              <Image
-                src="/IMG_6512.jpeg"
-                alt="Armenian Dance Show - Young Dancers"
-                fill
-                className="object-cover image-hover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
+            {galleryImagePaths.map((path) => (
+              <div
+                key={path}
+                className="relative aspect-[3/4] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500"
+              >
+                <Image
+                  src={getMediaUrl(path)}
+                  alt="Armenian Dance Show - Young Dancers"
+                  fill
+                  className="object-cover image-hover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
           </div>
         </div>
       </section>

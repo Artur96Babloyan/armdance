@@ -4,62 +4,47 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { getMediaUrl, SITE_VIDEO_PATHS } from '@/lib/media';
+
+const videoMeta = [
+  {
+    title: 'Armenian Dance Show Performance',
+    description: 'Watch our talented dancers perform traditional Armenian dances with passion and grace.',
+  },
+  {
+    title: 'Traditional Dance Performance',
+    description: 'Experience the beauty of Armenian traditional dance.',
+  },
+  {
+    title: 'Dance Showcase',
+    description: 'Our dancers showcasing their skills and dedication.',
+  },
+  {
+    title: 'Cultural Performance',
+    description: 'Celebrating Armenian culture through dance.',
+  },
+  {
+    title: 'Student Performance',
+    description: 'Our students demonstrating their progress and talent.',
+  },
+  {
+    title: 'Dance Recital',
+    description: 'Annual recital showcasing our dancers\' achievements.',
+  },
+] as const;
 
 export default function VideosPage() {
   const { t } = useLanguage();
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
-  const videos = [
-    { 
-      id: 'video1', 
-      src: '/copy_23123E67-CF85-4A95-8FA6-B666B7A947FF (3).mov',
-      thumbnail: '/dance-bg.jpg',
-      title: 'Armenian Dance Show Performance',
-      description: 'Watch our talented dancers perform traditional Armenian dances with passion and grace.'
-    },
-    { 
-      id: 'video2', 
-      src: '/1662380387137459.mov',
-      thumbnail: '/dance-bg.jpg',
-      title: 'Traditional Dance Performance',
-      description: 'Experience the beauty of Armenian traditional dance.'
-    },
-    { 
-      id: 'video3', 
-      src: '/166238040757721.MP4',
-      thumbnail: '/dance-bg.jpg',
-      title: 'Dance Showcase',
-      description: 'Our dancers showcasing their skills and dedication.'
-    },
-    { 
-      id: 'video4', 
-      src: '/1662380430938323.MP4',
-      thumbnail: '/dance-bg.jpg',
-      title: 'Cultural Performance',
-      description: 'Celebrating Armenian culture through dance.'
-    },
-    { 
-      id: 'video5', 
-      src: '/1662380450835598.MP4',
-      thumbnail: '/dance-bg.jpg',
-      title: 'Student Performance',
-      description: 'Our students demonstrating their progress and talent.'
-    },
-    { 
-      id: 'video6', 
-      src: '/86222d53-eff3-47dd-abc2-b60a6927237d.MP4',
-      thumbnail: '/dance-bg.jpg',
-      title: 'Armenian Dance Show',
-      description: 'A beautiful performance of traditional Armenian dances.'
-    },
-    { 
-      id: 'video7', 
-      src: '/harsiPars.MP4',
-      thumbnail: '/dance-bg.jpg',
-      title: 'Dance Recital',
-      description: 'Annual recital showcasing our dancers\' achievements.'
-    },
-  ];
+  const thumb = getMediaUrl('/dance-bg.jpg');
+  const videos = SITE_VIDEO_PATHS.map((path, i) => ({
+    id: `video${i + 1}`,
+    src: getMediaUrl(path),
+    thumbnail: thumb,
+    title: videoMeta[i]?.title ?? `Video ${i + 1}`,
+    description: videoMeta[i]?.description ?? '',
+  }));
 
   return (
     <div className="min-h-screen pt-16 bg-[#fafafa]">
